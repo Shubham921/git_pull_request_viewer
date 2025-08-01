@@ -1,6 +1,6 @@
 # git_pull_request_viewer
 
-A new Flutter project.
+A Github Pull Request Flutter project.
 
 ## Getting Started
 
