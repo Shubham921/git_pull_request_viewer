@@ -36,7 +36,7 @@ class PullRequestScreenListScreen extends StatelessWidget {
       init: PullRequestController(),
       builder: (controller) {
         return Scaffold(
-          appBar: const CustomAppBar(title: "Home", showBack: false),
+          appBar: const CustomAppBar(title: "Home"),
           body: RefreshIndicator(
             onRefresh: controller.refreshList,
             child: controller.isLoading

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:git_pull_request_viewer/utils/appbar.dart';
 
-import 'modules/splash_screen.dart';
+import 'modules/splash/screens/splash_screen.dart';
 
 
 void main() {

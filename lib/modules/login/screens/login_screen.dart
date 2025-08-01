@@ -28,8 +28,8 @@ class LoginScreen extends StatelessWidget {
               children: [
                 Image.asset(
                   'assets/github.png',
-                  height: 100,
-                  width: 100,
+                  height: 140,
+                  width: 140,
                 ),
                 const SizedBox(height: 16),
                 const Text(
