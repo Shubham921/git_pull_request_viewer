@@ -13,9 +13,12 @@ class ApiService {
 
   static Future<List<PullRequest>> fetchPullRequests() async {
     final token = await TokenService.getToken();
+
+    final isFakeToken = token == null || token == "abc123";
+
     final headers = {
       'Accept': 'application/vnd.github+json',
-     // if (token != null) 'Authorization':  'Bearer $token',
+      if (!isFakeToken) 'Authorization': 'Bearer $token',
     };
 
     final response = await http.get(Uri.parse(baseUrl), headers: headers);
