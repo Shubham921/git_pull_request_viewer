@@ -1,16 +1,25 @@
 import 'package:get/get.dart';
 import '../../../utils/ApiServices.dart';
+import '../../../utils/token_service.dart';
 import '../model/pull_request.dart';
 
 class PullRequestController extends GetxController {
   List<PullRequest> pullRequests = [];
   bool isLoading = true;
   String? error;
+  String token = '';
 
   @override
   void onInit() {
-    fetchPullRequests();
     super.onInit();
+    fetchPullRequests();
+    loadToken();
+
+  }
+
+  Future<void> loadToken() async {
+    token = (await TokenService.getToken())!;
+    update();
   }
 
   void fetchPullRequests() async {

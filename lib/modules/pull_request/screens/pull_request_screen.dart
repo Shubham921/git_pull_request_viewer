@@ -36,7 +36,12 @@ class PullRequestScreenListScreen extends StatelessWidget {
       init: PullRequestController(),
       builder: (controller) {
         return Scaffold(
-          appBar: const CustomAppBar(title: "Home"),
+          appBar:  CustomAppBar(title: "Home",
+            onInfoPressed: () {
+              Get.snackbar("Saved Token", controller.token.isNotEmpty ? controller.token : 'Token not available');
+
+            },
+          ),
           body: RefreshIndicator(
             onRefresh: controller.refreshList,
             child: controller.isLoading

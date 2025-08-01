@@ -2,9 +2,37 @@
 
 A Github Pull Request Flutter project.
 
-## Getting Started
+**Project Structure and Setup Steps** (Getx)
 
-changes
+token is handled (flutter_secure_storage).
+
+Project Structure and Setup Steps:
+The app uses GetX for state management. 
+The structure is organized into folders like controllers/ 
+(logic), utils/ (API/token), screens/ (UI), utils/
+(reusable components). 
+
+ Token Handling Explanation:
+The token is stored securely using
+a custom TokenService. When a user logs in, the token
+is saved via flutter secure storage . 
+It is retrieved using TokenService.getToken() wherever needed—like 
+during API calls or showing it in the app.
+
+**List of Bonus Features Implemented:**
+- Splash screen animation
+- Shimmer animation
+- UI enhancements
+- Added branch information indicating the source and target branches for the pull request
+- Dark mode and light mode functionality
+- Simulated fake login with token display on the home screen
+- Pull-to-refresh functionality
+- Retry on failure option
+
+
+
+
+
 
 This project is a starting point for a Flutter application.
 
