@@ -12,24 +12,25 @@ class ThemeController extends GetxController {
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final bool showBack;
+  //final bool showBack;
 
-  const CustomAppBar({super.key, required this.title, this.showBack = false});
+  const CustomAppBar({super.key, required this.title, /*this.showBack = false*/});
 
   @override
   Widget build(BuildContext context) {
     final themeController = Get.put(ThemeController());
 
     return AppBar(
+      automaticallyImplyLeading: false,
      // backgroundColor: Theme.of(context).colorScheme.primary,
       elevation: 0,
       centerTitle: true,
-      leading: showBack
+   /*   leading: showBack
           ? IconButton(
         icon: Icon(Icons.arrow_back, color: Theme.of(context).iconTheme.color),
         onPressed: () => Navigator.of(context).pop(),
       )
-          : null,
+          : null,*/
       title: Text(
         title,
         style: TextStyle(

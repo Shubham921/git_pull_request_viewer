@@ -55,11 +55,31 @@ class _PullRequestTileState extends State<PullRequestTile> {
             ),
             subtitle: Padding(
               padding: const EdgeInsets.only(top: 4),
-              child: Text(
-                'Author: ${pullRequest.author}',
-                style: const TextStyle(fontSize: 13, color: Colors.grey),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Author: ${pullRequest.author}',
+                        style: const TextStyle(fontSize: 13, color: Colors.grey),
+                      ),
+                      Text(
+                        'Date: $formattedDate',
+                        style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 2),
+                  /*Text(
+                    'Date: $formattedDate',
+                    style: const TextStyle(fontSize: 12, color: Colors.grey),
+                  ),*/
+                ],
               ),
             ),
+
             trailing: Icon(
               _isExpanded
                   ? Icons.keyboard_arrow_up_rounded
