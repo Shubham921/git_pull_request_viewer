@@ -24,13 +24,21 @@ class _PullRequestTileState extends State<PullRequestTile> {
         final statusColor = Colors.green;
 
         return Card(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           elevation: 1,
           margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           child: ExpansionTile(
-            tilePadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            tilePadding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 8,
+            ),
             expandedCrossAxisAlignment: CrossAxisAlignment.start,
-            childrenPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            childrenPadding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 8,
+            ),
             onExpansionChanged: (expanded) {
               setState(() {
                 _isExpanded = expanded;
@@ -41,16 +49,15 @@ class _PullRequestTileState extends State<PullRequestTile> {
                 Expanded(
                   child: Text(
                     pullRequest.title,
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                    ),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 const SizedBox(width: 8),
-                Image.asset(
-                  'assets/codebranch.png',
-                  height: 20,
-                  width: 20,
-                ),
+                Image.asset('assets/codebranch.png', height: 20, width: 20),
               ],
             ),
             subtitle: Padding(
@@ -63,11 +70,17 @@ class _PullRequestTileState extends State<PullRequestTile> {
                     children: [
                       Text(
                         'Author: ${pullRequest.author}',
-                        style: const TextStyle(fontSize: 13, color: Colors.grey),
+                        style: const TextStyle(
+                          fontSize: 13,
+                          color: Colors.grey,
+                        ),
                       ),
                       Text(
                         'Date: $formattedDate',
-                        style: const TextStyle(fontSize: 12, color: Colors.grey),
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey,
+                        ),
                       ),
                     ],
                   ),
@@ -88,12 +101,16 @@ class _PullRequestTileState extends State<PullRequestTile> {
             ),
             children: [
               const Divider(),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Created At:',
-                    style: TextStyle(color: statusColor, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      color: statusColor,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   Text(
                     formattedDate,
@@ -101,11 +118,52 @@ class _PullRequestTileState extends State<PullRequestTile> {
                   ),
                 ],
               ),
+
               const SizedBox(height: 8),
+
+              Row(
+                children: [
+                  const Icon(
+                    Icons.merge_type,
+                    size: 18,
+                    color: Colors.blueGrey,
+                  ),
+                  const SizedBox(width: 6),
+                  const Text('From ', style: TextStyle(fontSize: 13)),
+                  Text(
+                    pullRequest.headBranch,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13,
+                    ),
+                  ),
+                  const Text(' → ', style: TextStyle(fontSize: 13)),
+                  Text(
+                    pullRequest.baseBranch,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13,
+                    ),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 16),
+
+              const Text(
+                'Body:',
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+              ),
+
+              const SizedBox(height: 4),
+
               Text(
-                pullRequest.body ?? 'No description provided.',
+                pullRequest.body?.trim().isNotEmpty == true
+                    ? pullRequest.body!
+                    : 'No description provided.',
                 style: const TextStyle(fontSize: 13),
               ),
+
               const SizedBox(height: 8),
             ],
           ),

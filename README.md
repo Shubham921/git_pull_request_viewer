@@ -2,9 +2,24 @@
 
 A Github Pull Request Flutter project.
 
-## Getting Started
+**Project Structure and Setup Steps** (Getx)
 
-changes
+token is handled (flutter_secure_storage).
+
+**List of Bonus Features Implemented:**
+- Splash screen animation
+- Shimmer animation
+- UI enhancements
+- Added branch information indicating the source and target branches for the pull request
+- Dark mode and light mode functionality
+- Simulated fake login with token display on the home screen
+- Pull-to-refresh functionality
+- Retry on failure option
+
+
+
+
+
 
 This project is a starting point for a Flutter application.
 

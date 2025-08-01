@@ -12,7 +12,4 @@ class TokenService {
     return await _storage.read(key: _key);
   }
 
-  static Future<void> clearToken() async {
-    await _storage.delete(key: _key);
-  }
 }
